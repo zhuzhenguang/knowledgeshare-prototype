@@ -20,10 +20,10 @@
                     你好，<span ng-bind="user.name"></span>
                 </p>
                 <form class="navbar-form navbar-right" action="#" id="login_form">
-                    <button class="btn btn-success" id="login_button" ng-hide="user.login" ng-click="loginInit()">
+                    <button class="btn btn-success" id="login_button" ng-hide="user.login" ng-click="loginInit($event)">
                         <span class="glyphicon glyphicon-log-in"></span>&nbsp;登&nbsp;录
                     </button>
-                    <button class="btn btn-success" id="logout_button" ng-show="user.login">
+                    <button class="btn btn-success" id="logout_button" ng-show="user.login" ng-click="logout($event)">
                         <span class="glyphicon glyphicon-log-out"></span>&nbsp;退&nbsp;出
                     </button>
                 </form>

@@ -8,8 +8,11 @@
         'knowledgeService'
     ]);
 
-    /*knowledgeApp.config(['$routeProvider', function($routeProvider) {
-        $routeProvider
-            .when('/', {templateUrl: 'head.html'});
-    }]);*/
+    knowledgeApp.config(['$routeProvider', function($routeProvider) {
+        $routeProvider.
+            when('/', {templateUrl: '/main.html'}).
+            otherwise({
+                templateUrl: '/main.html'
+            });
+    }]);
 })();
