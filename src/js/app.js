@@ -10,9 +10,12 @@
 
     knowledgeApp.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
-            when('/', {templateUrl: '/main.html'}).
+            when('/editor', {
+                templateUrl: 'editor.html',
+                controller: 'KnowledgeEditController'
+            }).
             otherwise({
-                templateUrl: '/main.html'
+                templateUrl: 'new.html'
             });
     }]);
 })();

@@ -50,3 +50,7 @@ knowledgeControllers.controller("NavigatorController", ['$scope', function($scop
         autoclose: true
     });
 }]);
+
+knowledgeControllers.controller("KnowledgeEditController", ['$scope', function($scope) {
+    UE.getEditor('editor');
+}]);
