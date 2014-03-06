@@ -16,7 +16,7 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
      *
      * @param $event
      */
-    $scope.loginInit = function($event) {
+    $scope.loginInit = function ($event) {
         $event.preventDefault();
         $("div#login-modal").modal('show');
     };
@@ -26,7 +26,7 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
      *
      * @param $event
      */
-    $scope.login = function($event) {
+    $scope.login = function ($event) {
         $event.preventDefault();
         $scope.user.login = true;
         $("div#login-modal").modal('hide');
@@ -37,13 +37,13 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
      *
      * @param $event
      */
-    $scope.logout = function($event) {
+    $scope.logout = function ($event) {
         $event.preventDefault();
         $scope.user.login = false;
     };
 }]);
 
-knowledgeControllers.controller("NavigatorController", ['$scope', function($scope) {
+knowledgeControllers.controller("NavigatorController", ['$scope', function ($scope) {
     $('#datepicker').datepicker({
         format: "yyyy-mm-dd",
         language: "zh-CN",
@@ -51,6 +51,21 @@ knowledgeControllers.controller("NavigatorController", ['$scope', function($scop
     });
 }]);
 
-knowledgeControllers.controller("KnowledgeEditController", ['$scope', function($scope) {
-    UE.getEditor('editor');
+knowledgeControllers.controller("MenuController", ['$scope', function ($scope) {
+    var menuList = $('ul.nav li');
+    menuList.find('a').on('click', function(e) {
+        menuList.removeClass('active');
+        $(this).parent('li').addClass('active');
+    });
 }]);
+
+/*knowledgeControllers.controller("NewsController", ['$scope', function ($scope) {
+}]);*/
+
+knowledgeControllers.controller("KnowledgeEditController", ['$scope', function ($scope) {
+    $scope.ue = $scope.ue || UM.getEditor('share_editor');
+}]);
+
+/*knowledgeControllers.controller("MyShareController", ['$scope', function ($scope) {
+}]);*/
+

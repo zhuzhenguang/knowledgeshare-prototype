@@ -14,6 +14,10 @@
                 templateUrl: 'editor.html',
                 controller: 'KnowledgeEditController'
             }).
+            when('/myshare', {
+                templateUrl: 'myshare.html',
+                controller: 'MyShareController'
+            }).
             otherwise({
                 templateUrl: 'new.html'
             });
