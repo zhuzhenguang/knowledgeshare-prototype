@@ -53,19 +53,23 @@ knowledgeControllers.controller("NavigatorController", ['$scope', function ($sco
 
 knowledgeControllers.controller("MenuController", ['$scope', function ($scope) {
     var menuList = $('ul.nav li');
-    menuList.find('a').on('click', function(e) {
+    menuList.find('a').on('click', function (e) {
         menuList.removeClass('active');
         $(this).parent('li').addClass('active');
     });
 }]);
 
 /*knowledgeControllers.controller("NewsController", ['$scope', function ($scope) {
-}]);*/
+ }]);*/
 
 knowledgeControllers.controller("KnowledgeEditController", ['$scope', function ($scope) {
-    $scope.ue = $scope.ue || UM.getEditor('share_editor');
+    UM.getEditor('share_editor');
+
+    $scope.save = function ($event) {
+
+    };
 }]);
 
 /*knowledgeControllers.controller("MyShareController", ['$scope', function ($scope) {
-}]);*/
+ }]);*/
 

@@ -18,8 +18,11 @@
                 templateUrl: 'myshare.html',
                 controller: 'MyShareController'
             }).
+            when('/article', {
+                templateUrl: 'article.html'
+            }).
             otherwise({
-                templateUrl: 'new.html'
+                templateUrl: 'news.html'
             });
     }]);
 })();
