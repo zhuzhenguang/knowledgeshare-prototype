@@ -12,3 +12,15 @@ knowledgeServices.factory('User', ['$resource', function ($resource) {
 knowledgeServices.factory('Article', ['$resource', function ($resource) {
     return $resource('data/article.json');
 }]);
+
+knowledgeServices.factory('KeywordQuery', ['$resource', function ($resource) {
+    return $resource('data/keyword.json', {}, {
+        execute: {method: 'GET', isArray: true}
+    })
+}]);
+
+knowledgeServices.factory('Query', ['$resource', function ($resource) {
+    return $resource('data/articles.json', {}, {
+        execute: {method: 'GET', isArray: true}
+    })
+}]);

@@ -51,13 +51,26 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
 /**
  * 导航控制
  */
-knowledgeControllers.controller("NavigatorController", function () {
+knowledgeControllers.controller("NavigatorController", ['$scope', 'KeywordQuery', function ($scope, KeywordQuery) {
     angular.element('#datepicker').datepicker({
         format: "yyyy-mm-dd",
         language: "zh-CN",
-        autoclose: true
+        autoclose: true,
+        initialDate: ''
+    }).on('changeDate', function (event) {
+        console.log(event.date);
     });
-});
+
+    angular.element("#search_input").autocomplete({
+        source: function (request, response) {
+            KeywordQuery.execute({"keyword": request.term}, function (result) {
+                response(result);
+            });
+        }
+    }).data("ui-autocomplete")._renderItem = function (ul, item) {
+        return angular.element("<li>").append("<a>" + item.result + "</a>").appendTo(ul);
+    };
+}]);
 
 /**
  * 菜单控制
@@ -66,7 +79,7 @@ knowledgeControllers.controller("MenuController", ['$scope', '$rootScope', 'MENU
     function ($scope, $rootScope, MENU) {
         $rootScope.menu = MENU;
 
-        $rootScope.setMenu = function(id) {
+        $rootScope.setMenu = function (id) {
             angular.forEach($rootScope.menu, function (value, key) {
                 $rootScope.menu[key].status = '';
             });
@@ -102,6 +115,18 @@ knowledgeControllers.controller("KnowledgeEditController", ['$scope', '$rootScop
         };
 
         UM.getEditor('share_editor');
+    }
+]);
+
+/**
+ * 新分享
+ */
+knowledgeControllers.controller("KnowledgeNewsController", ['$scope', '$sce', 'Query',
+    function ($scope, $sce, Query) {
+        $scope.articles = Query.execute({'type': 'new'});
+        $scope.deliberatelyTrustDangerousSnippet = function (htmlContent) {
+            return $sce.trustAs('html', htmlContent);
+        };
     }
 ]);
 

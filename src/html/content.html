@@ -1,13 +1,12 @@
-<div class="container">
-    <div class="blog-header">
-        <h1 class="blog-title">最新分享</h1>
-        <p class="lead blog-description">欢迎分享你的想法</p>
-    </div>
-    <div class="row">
-        <!--主要内容-->
-        <div ng-view></div>
+<!--内容-->
+<div class="blog-header">
+    <h1 class="blog-title">发现新大陆！</h1>
+    <p class="lead blog-description">在Columbus系统中，分享你的想法，发现你心中的新大陆</p>
+</div>
+<div class="row">
+    <!--主要内容-->
+    <div ng-include="'main.html'"></div>
 
-        <!--导航-->
-        <div ng-include="'nav.html'"></div>
-    </div>
+    <!--导航-->
+    <div ng-include="'nav.html'"></div>
 </div>

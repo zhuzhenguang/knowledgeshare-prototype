@@ -15,14 +15,14 @@
                 controller: 'KnowledgeEditController'
             }).
             when('/myshare', {
-                templateUrl: 'myshare.html',
+                templateUrl: 'main.html',
                 controller: 'MyShareController'
             }).
             when('/article', {
                 templateUrl: 'article.html'
             }).
             otherwise({
-                templateUrl: 'news.html',
+                templateUrl: 'content.html',
                 controller: 'MenuController'
             });
     }]);
