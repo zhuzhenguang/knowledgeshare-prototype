@@ -1,8 +1,13 @@
 /**
+ * Controllers模块
+ *
  * Created by zhenguang.zhu on 14-3-3.
  */
 var knowledgeControllers = angular.module('knowledgeControllers', []);
 
+/**
+ * 用户控制
+ */
 knowledgeControllers.controller('UserController', ['$scope', 'User', function ($scope, User) {
     /**
      * 检查是否登录
@@ -18,7 +23,7 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
      */
     $scope.loginInit = function ($event) {
         $event.preventDefault();
-        $("div#login-modal").modal('show');
+        angular.element('div#login-modal').modal('show');
     };
 
     /**
@@ -29,7 +34,7 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
     $scope.login = function ($event) {
         $event.preventDefault();
         $scope.user.login = true;
-        $("div#login-modal").modal('hide');
+        angular.element('div#login-modal').modal('hide');
     };
 
     /**
@@ -43,33 +48,60 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
     };
 }]);
 
-knowledgeControllers.controller("NavigatorController", ['$scope', function ($scope) {
-    $('#datepicker').datepicker({
+/**
+ * 导航控制
+ */
+knowledgeControllers.controller("NavigatorController", function () {
+    angular.element('#datepicker').datepicker({
         format: "yyyy-mm-dd",
         language: "zh-CN",
         autoclose: true
     });
-}]);
+});
 
-knowledgeControllers.controller("MenuController", ['$scope', function ($scope) {
-    var menuList = $('ul.nav li');
-    menuList.find('a').on('click', function (e) {
-        menuList.removeClass('active');
-        $(this).parent('li').addClass('active');
-    });
-}]);
+/**
+ * 菜单控制
+ */
+knowledgeControllers.controller("MenuController", ['$scope', '$rootScope', 'MENU',
+    function ($scope, $rootScope, MENU) {
+        $rootScope.menu = MENU;
 
-/*knowledgeControllers.controller("NewsController", ['$scope', function ($scope) {
- }]);*/
+        $rootScope.setMenu = function(id) {
+            angular.forEach($rootScope.menu, function (value, key) {
+                $rootScope.menu[key].status = '';
+            });
+            $rootScope.menu[id].status = 'active';
+        };
 
-knowledgeControllers.controller("KnowledgeEditController", ['$scope', function ($scope) {
-    UM.getEditor('share_editor');
+        $scope.switchMenu = function ($event) {
+            var id = $event.currentTarget.id || "home_menu";
+            $rootScope.setMenu(id);
+        };
+    }
+]);
 
-    $scope.save = function ($event) {
+/**
+ * 菜单常量
+ */
+knowledgeControllers.constant('MENU', {
+    "home_menu": {status: 'active'},
+    "edit_menu": {status: ''},
+    "myshare_menu": {status: ''}
+});
 
-    };
-}]);
+/**
+ * 编辑功能
+ */
+knowledgeControllers.controller("KnowledgeEditController", ['$scope', '$rootScope', '$location', 'Article',
+    function ($scope, $rootScope, $location, Article) {
+        $scope.save = function () {
+            Article.get(function () {
+                $location.path('/article');
+                $rootScope.setMenu("myshare_menu");
+            });
+        };
 
-/*knowledgeControllers.controller("MyShareController", ['$scope', function ($scope) {
- }]);*/
+        UM.getEditor('share_editor');
+    }
+]);
 

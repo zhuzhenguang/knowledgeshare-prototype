@@ -38,7 +38,7 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {font-weight: normal;color: #333;margi
 /*Footer*/
 .blog-footer {padding: 40px 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: 1px solid #e5e5e5;}
 
-form.share_form {padding-top:30px;}
+.share_module {padding-top:30px;}
 /* Nav links */
 /*.blog-nav-item {
     position: relative;

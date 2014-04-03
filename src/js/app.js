@@ -5,10 +5,10 @@
     var knowledgeApp = angular.module('knowledgeApp', [
         'ngRoute',
         'knowledgeControllers',
-        'knowledgeService'
+        'knowledgeServices'
     ]);
 
-    knowledgeApp.config(['$routeProvider', function($routeProvider) {
+    knowledgeApp.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.
             when('/editor', {
                 templateUrl: 'editor.html',
@@ -22,7 +22,8 @@
                 templateUrl: 'article.html'
             }).
             otherwise({
-                templateUrl: 'news.html'
+                templateUrl: 'news.html',
+                controller: 'MenuController'
             });
     }]);
 })();
