@@ -1,21 +1,45 @@
 <div class="col-sm-3 col-sm-offset-1 blog-sidebar" ng-controller="NavigatorController">
     <div class="sidebar-module sidebar-module-inset">
-        <h4>关键字查询</h4>
-        <form role="form" class="form-inline" action="#">
-            <div class="input-group">
+        <h4>
+            搜索分享
+            <button type="button" class="btn btn-default btn-xs pull-right" ng-click="switchSearch()">
+                {{searchMode.name}}
+            </button>
+        </h4>
+
+        <form role="form" action="#">
+            <div class="form-group">
                 <input type="text" class="form-control" placeholder="输入关键字" id="search_input">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" type="button">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div><!-- /input-group -->
+            </div>
+
+            <!--高级搜索模块-->
+            <div id="advance_search" ng-show="searchMode.id===0">
+                <h5>按照日期查询</h5>
+                <div class="input-group">
+                    <div class="form-group" id="date_search">
+                        <input id="search_start_date" placeholder="开始日期" class="form-control">
+                        ～
+                        <input id="search_end_date" placeholder="结束日期" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="button">
+                <span class="glyphicon glyphicon-search"></span>&nbsp;搜&nbsp;索
+            </button>
         </form>
     </div>
-    <div class="sidebar-module sidebar-module-inset">
-        <h4>按照日期查询</h4>
-        <div id="datepicker"></div>
+
+    <div class="sidebar-module sidebar-module-inset" ng-controller="TagController">
+        <h4>标签</h4>
+        <ol class="list-unstyled tags">
+            <li ng-repeat="tag in tags">
+                <a href="#" class="btn btn-{{getColor($index)}} tag{{tag.weight}}">{{tag.name}}</a>
+            </li>
+        </ol>
+        <div class="clearfix"></div>
     </div>
+
     <div class="sidebar-module sidebar-module-inset">
         <h4>归档的分享</h4>
         <ol class="list-unstyled">
@@ -26,4 +50,5 @@
             <li><a href="#">2013年9月</a></li>
         </ol>
     </div>
+
 </div>

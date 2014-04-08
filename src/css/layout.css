@@ -39,6 +39,14 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {font-weight: normal;color: #333;margi
 .blog-footer {padding: 40px 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: 1px solid #e5e5e5;}
 
 .share_module {padding-top:30px;}
+div#advance_search{padding-top:20px;}
+.tags li, .tags label {float: left;margin: 0 10px 10px 0}
+.tag1 {font-size: 12px;}
+.tag2 {font-size: 14px;}
+.tag3 {font-size: 18px;}
+.tag4 {font-size: 24px;}
+.tag5 {font-size: 30px;}
+.tag6 {font-size: 36px;}
 /* Nav links */
 /*.blog-nav-item {
     position: relative;

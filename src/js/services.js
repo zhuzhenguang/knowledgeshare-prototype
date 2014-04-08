@@ -24,3 +24,9 @@ knowledgeServices.factory('Query', ['$resource', function ($resource) {
         execute: {method: 'GET', isArray: true}
     })
 }]);
+
+knowledgeServices.factory('Tag', ['$resource', function($resource) {
+    return $resource('data/tags.json', {}, {
+        query: {method: 'GET', isArray: true}
+    });
+}]);
