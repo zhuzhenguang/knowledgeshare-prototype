@@ -1,0 +1,30 @@
+<div class="sidebar-module sidebar-module-inset">
+    <h4>
+        搜索分享
+        <button type="button" class="btn btn-default btn-xs pull-right" ng-click="switchSearch()">
+            {{searchMode.name}}
+        </button>
+    </h4>
+
+    <form role="form" action="#">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="输入关键字" id="search_input">
+        </div>
+
+        <!--高级搜索模块-->
+        <div id="advance_search" ng-show="searchMode.id===0">
+            <h5>按照日期查询</h5>
+            <div class="input-group">
+                <div class="form-group" id="date_search">
+                    <input id="search_start_date" placeholder="开始日期" class="form-control">
+                    ～
+                    <input id="search_end_date" placeholder="结束日期" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="button">
+            <span class="glyphicon glyphicon-search"></span>&nbsp;搜&nbsp;索
+        </button>
+    </form>
+</div>

@@ -77,9 +77,9 @@ knowledgeControllers.controller("NavigatorController", ['$scope', 'KeywordQuery'
             select: function (event, ui) {
                 angular.element("#search_input").val(ui.item.result);
             }
-        }).data("ui-autocomplete")._renderItem = function (ul, item) {
+        })/*.data("ui-autocomplete")._renderItem = function (ul, item) {
             return angular.element("<li>").append("<a>" + item.result + "</a>").appendTo(ul);
-        };
+        }*/;
     }
 ]);
 
@@ -110,6 +110,13 @@ knowledgeControllers.controller('TagController', ['$scope', 'TAG_PROP', 'Tag', f
 knowledgeControllers.constant('TAG_PROP', {
     color: ['default', 'primary', 'success', 'info', 'warning', 'danger']
 });
+
+/**
+ * 目录控制
+ */
+knowledgeControllers.controller('CategoryController', ['$scope', 'Category', function ($scope, Category) {
+    $scope.category = Category.query();
+}]);
 
 /**
  * 菜单控制

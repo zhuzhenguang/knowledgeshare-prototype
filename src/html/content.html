@@ -11,5 +11,9 @@
     <div ng-include="'main.html'"></div>
 
     <!--导航-->
-    <div ng-include="'nav.html'"></div>
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar" ng-controller="NavigatorController">
+        <div ng-include="'nav/search.html'"></div>
+        <div ng-include="'nav/tag.html'"></div>
+        <div ng-include="'nav/archive.html'"></div>
+    </div>
 </div>

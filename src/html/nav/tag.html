@@ -1,0 +1,9 @@
+<div class="sidebar-module sidebar-module-inset" ng-controller="TagController">
+    <h4>标签</h4>
+    <ol class="list-unstyled tags">
+        <li ng-repeat="tag in tags">
+            <a href="#" class="btn btn-{{getColor($index)}} tag{{tag.weight}}">{{tag.name}}</a>
+        </li>
+    </ol>
+    <div class="clearfix"></div>
+</div>

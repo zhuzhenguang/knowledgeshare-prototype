@@ -15,8 +15,7 @@
                 controller: 'KnowledgeEditController'
             }).
             when('/myshare', {
-                templateUrl: 'main.html',
-                controller: 'MyShareController'
+                templateUrl: 'myshare.html'
             }).
             when('/article', {
                 templateUrl: 'article.html'

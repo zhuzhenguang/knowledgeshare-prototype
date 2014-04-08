@@ -25,8 +25,14 @@ knowledgeServices.factory('Query', ['$resource', function ($resource) {
     })
 }]);
 
-knowledgeServices.factory('Tag', ['$resource', function($resource) {
+knowledgeServices.factory('Tag', ['$resource', function ($resource) {
     return $resource('data/tags.json', {}, {
         query: {method: 'GET', isArray: true}
     });
+}]);
+
+knowledgeServices.factory('Category', ['$resource', function ($resource) {
+    return $resource('data/category.json', {}, {
+        query: {method: 'GET', isArray: true}
+    })
 }]);

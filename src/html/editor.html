@@ -4,10 +4,22 @@
         <label for="share_title">分享标题</label>
         <input class="form-control" id="share_title">
     </div>
+
     <div class="form-group">
         <label for="share_editor">分享内容</label>
         <script id="share_editor" type="text/plain" style="width:100%;height:300px;"></script>
     </div>
+
+    <div class="form-group" ng-controller="CategoryController">
+        <label for="share_category">分配目录</label>
+        <div class="col-sm-6">
+            <select id="share_category" class="form-control">
+                <option>无</option>
+                <option ng-repeat="item in category">{{item.name}}</option>
+            </select>
+        </div>
+    </div>
+
     <div class="form-group" ng-controller="TagController">
         <label>标签</label>
         <div class="tags" data-toggle="buttons">
@@ -18,9 +30,10 @@
         </div>
         <div class="clearfix"></div>
         <button class="btn btn-default" ng-click="newTag()">
-            <span class="glyphicon glyphicon-plus"></span>&nbsp;新建标签
+            <span class="glyphicon glyphicon-tags"></span>&nbsp;新建标签
         </button>
     </div>
+
     <div class="form-group text-right">
         <button class="btn btn-primary" ng-click="save()">
             <span class="glyphicon glyphicon-open"></span>&nbsp;提&nbsp;交
