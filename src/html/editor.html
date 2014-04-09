@@ -2,7 +2,7 @@
 <form role="form" class="share_module">
     <div class="form-group">
         <label for="share_title">分享标题</label>
-        <input class="form-control" id="share_title">
+        <input class="form-control" id="share_title" ng-model="article.title">
     </div>
 
     <div class="form-group">
@@ -12,11 +12,17 @@
 
     <div class="form-group" ng-controller="CategoryController">
         <label for="share_category">分配目录</label>
-        <div class="col-sm-6">
-            <select id="share_category" class="form-control">
-                <option>无</option>
-                <option ng-repeat="item in category">{{item.name}}</option>
-            </select>
+        <div class="row">
+            <div class="col-md-3">
+                <select id="share_category" class="form-control" ng-model="article.category">
+                    <option value="none">无</option>
+                    <option ng-repeat="item in categories">{{item.name}}</option>
+                    <option value="new">新建目录</option>
+                </select>
+            </div>
+            <div class="col-md-4" ng-show="article.category=='new'">
+                <input class="form-control" placeholder="新的目录名称">
+            </div>
         </div>
     </div>
 

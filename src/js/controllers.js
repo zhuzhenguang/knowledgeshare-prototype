@@ -51,7 +51,7 @@ knowledgeControllers.controller('UserController', ['$scope', 'User', function ($
 /**
  * 导航控制
  */
-knowledgeControllers.controller("NavigatorController", ['$scope', 'KeywordQuery', 'SEARCH_MODE',
+knowledgeControllers.controller("SearchController", ['$scope', 'KeywordQuery', 'SEARCH_MODE',
     function ($scope, KeywordQuery, SEARCH_MODE) {
         /* 搜索模式 */
         $scope.searchMode = SEARCH_MODE[1];
@@ -77,9 +77,9 @@ knowledgeControllers.controller("NavigatorController", ['$scope', 'KeywordQuery'
             select: function (event, ui) {
                 angular.element("#search_input").val(ui.item.result);
             }
-        })/*.data("ui-autocomplete")._renderItem = function (ul, item) {
+        }).data("ui-autocomplete")._renderItem = function (ul, item) {
             return angular.element("<li>").append("<a>" + item.result + "</a>").appendTo(ul);
-        }*/;
+        };
     }
 ]);
 
@@ -115,7 +115,7 @@ knowledgeControllers.constant('TAG_PROP', {
  * 目录控制
  */
 knowledgeControllers.controller('CategoryController', ['$scope', 'Category', function ($scope, Category) {
-    $scope.category = Category.query();
+    $scope.categories = Category.query();
 }]);
 
 /**
@@ -164,12 +164,16 @@ knowledgeControllers.controller("KnowledgeEditController", ['$scope', '$rootScop
             angular.element('#new_tag_modal').modal();
         };
 
+        $scope.article = {
+            category: 'none'
+        };
+
         UM.getEditor('share_editor');
     }
 ]);
 
 /**
- * 新分享
+ * 最新分享
  */
 knowledgeControllers.controller("KnowledgeNewsController", ['$scope', '$sce', 'Query',
     function ($scope, $sce, Query) {
