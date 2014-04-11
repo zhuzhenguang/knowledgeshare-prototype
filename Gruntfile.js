@@ -14,7 +14,7 @@ module.exports = function (grunt) {
                 stripBanners: true
             },
             dist: {
-                src: ['src/**/*.js'],
+                src: ['src/scripts/**/*.js'],
                 dest: 'dist/<%= pkg.name %>.js'
             }
         },
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
             },
             src: {
                 options: {
-                    jshintrc: 'src/.jshintrc'
+                    jshintrc: '.jshintrc'
                 },
                 src: ['src/**/*.js']
             }
@@ -57,5 +57,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
-    grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
+    grunt.registerTask('default', ['clean', 'concat', 'uglify']);
 };
