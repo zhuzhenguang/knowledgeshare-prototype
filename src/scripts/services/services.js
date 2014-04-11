@@ -4,35 +4,35 @@
 var knowledgeServices = angular.module('knowledgeServices', ['ngResource']);
 
 knowledgeServices.factory('User', ['$resource', function ($resource) {
-    return $resource('data/user.json', {}, {
+    return $resource('views/data/user.json', {}, {
         check: {method: 'GET', isArray: false}
     });
 }]);
 
 knowledgeServices.factory('Article', ['$resource', function ($resource) {
-    return $resource('data/article.json');
+    return $resource('views/data/article.json');
 }]);
 
 knowledgeServices.factory('KeywordQuery', ['$resource', function ($resource) {
-    return $resource('data/keyword.json', {}, {
+    return $resource('views/data/keyword.json', {}, {
         execute: {method: 'GET', isArray: true}
     })
 }]);
 
 knowledgeServices.factory('Query', ['$resource', function ($resource) {
-    return $resource('data/articles.json', {}, {
+    return $resource('views/data/articles.json', {}, {
         execute: {method: 'GET', isArray: true}
     })
 }]);
 
 knowledgeServices.factory('Tag', ['$resource', function ($resource) {
-    return $resource('data/tags.json', {}, {
+    return $resource('views/data/tags.json', {}, {
         query: {method: 'GET', isArray: true}
     });
 }]);
 
 knowledgeServices.factory('Category', ['$resource', function ($resource) {
-    return $resource('data/category.json', {}, {
+    return $resource('views/data/category.json', {}, {
         query: {method: 'GET', isArray: true}
     })
 }]);

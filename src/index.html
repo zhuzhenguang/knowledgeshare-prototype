@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="knowledgeApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>知识分享主页</title>
+    <link href="vendors/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="vendors/css/datepicker.css" rel="stylesheet">
+    <link href="vendors/css/cupertino/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <link href="vendors/ueditor/themes/default/css/umeditor.min.css" rel="stylesheet">
+    <link href="styles/layout.css" rel="stylesheet">
+</head>
+<body>
+    <!--头部-->
+    <div ng-include="'views/head.html'"></div>
+
+    <!--内容-->
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <script src="vendors/js/jquery-1.11.0.min.js"></script>
+    <script src="vendors/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="vendors/js/bootstrap.min.js"></script>
+    <script src="vendors/js/bootstrap-datepicker.js"></script>
+    <script src="vendors/js/locales/bootstrap-datepicker.zh-CN.js" charset="UTF-8"></script>
+    <script src="vendors/js/angular.min.js"></script>
+    <script src="vendors/js/angular-resource.min.js"></script>
+    <script src="vendors/js/angular-route.min.js"></script>
+    <script src="vendors/js/angular-sanitize.min.js"></script>
+    <script src="vendors/ueditor/umeditor.config.js"></script>
+    <script src="../dist/knowledgeshare.js"></script>
+</body>
+</html>

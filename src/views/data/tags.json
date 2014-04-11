@@ -1,0 +1,11 @@
+[
+    {"name": "Java",         "weight": 6},
+    {"name": "Javascript",   "weight": 2},
+    {"name": "Actionscript", "weight": 3},
+    {"name": "Scala",        "weight": 3},
+    {"name": "Groovy",       "weight": 2},
+    {"name": "Haskell",      "weight": 5},
+    {"name": "Ruby",         "weight": 4},
+    {"name": "Python",       "weight": 1},
+    {"name": "Html",         "weight": 4}
+]

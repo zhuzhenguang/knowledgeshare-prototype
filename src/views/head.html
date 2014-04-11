@@ -1,0 +1,47 @@
+<div ng-controller="UserController">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container" ng-controller="MenuController">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" ng-click="switchMenu($event)">Columbus</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="{{menu.home_menu.status}}">
+                        <a href="#" ng-click="switchMenu($event)" id="home_menu">
+                            <span class="glyphicon glyphicon-home"></span>&nbsp;主页
+                        </a>
+                    </li>
+                    <li class="{{menu.edit_menu.status}}">
+                        <a href="#/editor" ng-click="switchMenu($event, true)" id="edit_menu">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;写分享
+                        </a>
+                    </li>
+                    <li class="{{menu.myshare_menu.status}}">
+                        <a href="#/myshare" ng-click="switchMenu($event, true)" id="myshare_menu">
+                            <span class="glyphicon glyphicon-user"></span>&nbsp;我的分享
+                        </a>
+                    </li>
+                </ul>
+                <p class="navbar-text navbar-right" ng-show="user.login">
+                    你好，<span ng-bind="user.name"></span>
+                </p>
+                <form class="navbar-form navbar-right" action="#" id="login_form">
+                    <button class="btn btn-success" id="login_button" ng-hide="user.login" ng-click="loginInit($event)">
+                        <span class="glyphicon glyphicon-log-in"></span>&nbsp;登&nbsp;录
+                    </button>
+                    <button class="btn btn-success" id="logout_button" ng-show="user.login" ng-click="logout($event)">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;退&nbsp;出
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include="'views/login.html'"></div>
+</div>
